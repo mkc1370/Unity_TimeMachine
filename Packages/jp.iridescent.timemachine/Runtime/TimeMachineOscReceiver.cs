@@ -160,8 +160,11 @@ public class TimeMachineOscReceiver : MonoBehaviour
         {
             extOscReceiver.Bind(timeMachineOscEvent.oscAddress, (message) =>
             {
-                var sectionName = timeMachineOscEvent.sectionName;
-                timeMachineTrackManager.MoveClip(sectionName);    
+                if (timeMachineTrackManager != null)
+                {
+                    var sectionName = timeMachineOscEvent.sectionName;
+                    timeMachineTrackManager.MoveClip(sectionName);    
+                }
                 
             });
         }
